@@ -2,9 +2,18 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  styles: [
+    `
+      .content {
+        min-height: 320px;
+        margin: 20% auto;
+      }
+    `,
+  ],
 })
-export class AppComponent {
-  title = 'ng-roles-app';
-}
+export class AppComponent {}
