@@ -1,21 +1,31 @@
 {
-  "name": "ng-roles-app",
+  "name": "@shumih/ng-roles",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 5009",
     "build": "ng build",
     "test": "jest projects/ng-roles",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "pack": "npm run build_lib && npm run pack_lib",
+    "build_lib": "ng build ng-roles",
+    "pack_lib": "cd dist/ng-roles && npm pack"
   },
-  "private": true,
+  "private": false,
   "jest": {
     "preset": "jest-preset-angular",
     "rootDir": ".",
     "setupFilesAfterEnv": [
       "./jest-setup.ts"
     ]
+  },
+  "homepage": "https://github.com/shumih/ng-roles#readme",
+  "bugs": {
+    "email": "shumih.anton@gmail.com",
+    "url": "https://github.com/shumih/ng-roles/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shumih/ng-roles.git"
   },
   "dependencies": {
     "@angular/animations": "~9.0.1",
@@ -37,7 +47,6 @@
     "@angular/compiler-cli": "~9.0.1",
     "@angular/language-service": "~9.0.1",
     "@types/jasmine": "^3.5.10",
-    "@types/jest": "^25.2.1",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
