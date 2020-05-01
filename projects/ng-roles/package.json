@@ -1,6 +1,15 @@
 {
   "name": "@shumih/ng-roles",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "homepage": "https://github.com/shumih/ng-roles#readme",
+  "bugs": {
+    "email": "shumih.anton@gmail.com",
+    "url": "https://github.com/shumih/ng-roles/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shumih/ng-roles.git"
+  },
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",

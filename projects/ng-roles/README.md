@@ -2,23 +2,30 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project ng-roles` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-roles`.
-> Note: Don't forget to add `--project ng-roles` or else it will be added to the default project in your `angular.json` file. 
+Run `npm i @shumih/ng-roles` to install package.
 
-## Build
+## Usage
 
-Run `ng build ng-roles` to build the project. The build artifacts will be stored in the `dist/` directory.
+requires service extended from PermissionService\
+requires import with providers in root module
+ 
+```javascript
+@NgModule({
+  imports: [
+    NgRolesModule.forRoot([['/home'], { queryParams: { message: 'Access denied' } }]),
+  ],
+  providers: [{ provide: PermissionService, useExisting: AppPermissionService }],
+})
+```
 
-## Publishing
+requires import in submodules where you want to use related directives
 
-After building your library with `ng build ng-roles`, go to the dist folder `cd dist/ng-roles` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ng-roles` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```javascript
+@NgModule({
+  imports: [
+    NgRolesModule,
+  ],
+})
+```
