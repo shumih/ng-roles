@@ -4,7 +4,7 @@ import { Inject, Injectable, Optional } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Route, Router, Routes, UrlTree } from '@angular/router';
 import { DEFAULT_ROUTER_COMMANDS, SECTIONS_STREAM_TOKEN } from '../tokens';
 import { SectionValue } from '../models/permission.interface';
-import { canShowSections } from '../helpers/permission';
+import { canShowSections, hasRoutePathParameter } from '../helpers/permission';
 import { flat } from '../helpers/collection';
 
 @Injectable({
@@ -38,6 +38,7 @@ export class RoleGuard<C extends string = string> implements CanActivateChild, C
         );
         const allowedSiblingFragments = siblings
           .map(child => [...fragments.slice(0, -1), child.path!])
+          .filter(siblingFragments => !siblingFragments.some(hasRoutePathParameter))
           .find(siblingFragments => canShowSections(allowed, siblingFragments));
 
         if (allowedSiblingFragments) {

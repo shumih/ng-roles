@@ -73,3 +73,7 @@ export function findAndReplaceIfValueIsMoreImportant<V extends SectionValue<stri
 function testRegExpPattern(pattern: string, path: string) {
   return new RegExp(pattern).test(path) ? path : false;
 }
+
+export function hasRoutePathParameter(path: string) {
+  return path.includes(':');
+}
